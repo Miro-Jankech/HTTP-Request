@@ -50,4 +50,13 @@ export class AvailablePlacesComponent implements OnInit {
       subscription.unsubscribe();
     })
   }
+
+  onSelectPlace(selectedPlace: Place) {
+    this.httpClient.put('http://localhost:3000/user-places',{
+      place: selectedPlace.id
+    }).subscribe({
+      next: (resData) => console.log(resData),
+      
+    });
+  }
 }
